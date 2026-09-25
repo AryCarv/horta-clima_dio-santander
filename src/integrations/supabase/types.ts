@@ -14,7 +14,411 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      garden_plants: {
+        Row: {
+          container_size_liters: number | null
+          container_type: string | null
+          created_at: string
+          expected_harvest_end: string | null
+          expected_harvest_start: string | null
+          garden_id: string
+          id: string
+          notes: string | null
+          plant_id: string
+          planted_at: string
+          quantity: number
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          container_size_liters?: number | null
+          container_type?: string | null
+          created_at?: string
+          expected_harvest_end?: string | null
+          expected_harvest_start?: string | null
+          garden_id: string
+          id?: string
+          notes?: string | null
+          plant_id: string
+          planted_at?: string
+          quantity?: number
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          container_size_liters?: number | null
+          container_type?: string | null
+          created_at?: string
+          expected_harvest_end?: string | null
+          expected_harvest_start?: string | null
+          garden_id?: string
+          id?: string
+          notes?: string | null
+          plant_id?: string
+          planted_at?: string
+          quantity?: number
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "garden_plants_garden_id_fkey"
+            columns: ["garden_id"]
+            isOneToOne: false
+            referencedRelation: "gardens"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "garden_plants_plant_id_fkey"
+            columns: ["plant_id"]
+            isOneToOne: false
+            referencedRelation: "plants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      gardens: {
+        Row: {
+          city: string | null
+          country: string | null
+          created_at: string
+          id: string
+          latitude: number | null
+          longitude: number | null
+          name: string
+          objectives: string[]
+          size_category: string | null
+          size_m2: number | null
+          space_types: string[]
+          state: string | null
+          sunlight_level: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          objectives?: string[]
+          size_category?: string | null
+          size_m2?: number | null
+          space_types?: string[]
+          state?: string | null
+          sunlight_level?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          objectives?: string[]
+          size_category?: string | null
+          size_m2?: number | null
+          space_types?: string[]
+          state?: string | null
+          sunlight_level?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      harvests: {
+        Row: {
+          created_at: string
+          garden_id: string
+          garden_plant_id: string
+          harvest_date: string
+          id: string
+          notes: string | null
+          quantity: number | null
+          unit: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          garden_id: string
+          garden_plant_id: string
+          harvest_date?: string
+          id?: string
+          notes?: string | null
+          quantity?: number | null
+          unit?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          garden_id?: string
+          garden_plant_id?: string
+          harvest_date?: string
+          id?: string
+          notes?: string | null
+          quantity?: number | null
+          unit?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "harvests_garden_id_fkey"
+            columns: ["garden_id"]
+            isOneToOne: false
+            referencedRelation: "gardens"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "harvests_garden_plant_id_fkey"
+            columns: ["garden_plant_id"]
+            isOneToOne: false
+            referencedRelation: "garden_plants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      journal_entries: {
+        Row: {
+          content: string | null
+          created_at: string
+          entry_date: string
+          entry_type: string
+          garden_id: string
+          garden_plant_id: string | null
+          id: string
+          image_path: string | null
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          entry_date?: string
+          entry_type?: string
+          garden_id: string
+          garden_plant_id?: string | null
+          id?: string
+          image_path?: string | null
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          entry_date?: string
+          entry_type?: string
+          garden_id?: string
+          garden_plant_id?: string | null
+          id?: string
+          image_path?: string | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "journal_entries_garden_id_fkey"
+            columns: ["garden_id"]
+            isOneToOne: false
+            referencedRelation: "gardens"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "journal_entries_garden_plant_id_fkey"
+            columns: ["garden_plant_id"]
+            isOneToOne: false
+            referencedRelation: "garden_plants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      plants: {
+        Row: {
+          active: boolean
+          category: string
+          created_at: string
+          description: string
+          difficulty: string
+          general_care: string
+          harvest_days_max: number
+          harvest_days_min: number
+          harvest_guidance: string
+          id: string
+          ideal_temperature_max: number | null
+          ideal_temperature_min: number | null
+          image_url: string | null
+          minimum_container_liters: number | null
+          name: string
+          planting_guidance: string
+          planting_months: number[]
+          slug: string
+          source_reference: string | null
+          suitable_for_small_spaces: boolean
+          sunlight_requirement: string
+          updated_at: string
+          water_need: string
+        }
+        Insert: {
+          active?: boolean
+          category: string
+          created_at?: string
+          description: string
+          difficulty: string
+          general_care: string
+          harvest_days_max: number
+          harvest_days_min: number
+          harvest_guidance: string
+          id?: string
+          ideal_temperature_max?: number | null
+          ideal_temperature_min?: number | null
+          image_url?: string | null
+          minimum_container_liters?: number | null
+          name: string
+          planting_guidance: string
+          planting_months?: number[]
+          slug: string
+          source_reference?: string | null
+          suitable_for_small_spaces?: boolean
+          sunlight_requirement: string
+          updated_at?: string
+          water_need: string
+        }
+        Update: {
+          active?: boolean
+          category?: string
+          created_at?: string
+          description?: string
+          difficulty?: string
+          general_care?: string
+          harvest_days_max?: number
+          harvest_days_min?: number
+          harvest_guidance?: string
+          id?: string
+          ideal_temperature_max?: number | null
+          ideal_temperature_min?: number | null
+          image_url?: string | null
+          minimum_container_liters?: number | null
+          name?: string
+          planting_guidance?: string
+          planting_months?: number[]
+          slug?: string
+          source_reference?: string | null
+          suitable_for_small_spaces?: boolean
+          sunlight_requirement?: string
+          updated_at?: string
+          water_need?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          experience_level: string | null
+          full_name: string | null
+          id: string
+          onboarding_completed: boolean
+          temperature_unit: string
+          updated_at: string
+          user_id: string
+          week_start: string
+        }
+        Insert: {
+          created_at?: string
+          experience_level?: string | null
+          full_name?: string | null
+          id?: string
+          onboarding_completed?: boolean
+          temperature_unit?: string
+          updated_at?: string
+          user_id: string
+          week_start?: string
+        }
+        Update: {
+          created_at?: string
+          experience_level?: string | null
+          full_name?: string | null
+          id?: string
+          onboarding_completed?: boolean
+          temperature_unit?: string
+          updated_at?: string
+          user_id?: string
+          week_start?: string
+        }
+        Relationships: []
+      }
+      tasks: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          description: string | null
+          due_date: string
+          garden_id: string
+          garden_plant_id: string | null
+          id: string
+          source: string
+          status: string
+          task_type: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          description?: string | null
+          due_date: string
+          garden_id: string
+          garden_plant_id?: string | null
+          id?: string
+          source?: string
+          status?: string
+          task_type?: string
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          description?: string | null
+          due_date?: string
+          garden_id?: string
+          garden_plant_id?: string | null
+          id?: string
+          source?: string
+          status?: string
+          task_type?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tasks_garden_id_fkey"
+            columns: ["garden_id"]
+            isOneToOne: false
+            referencedRelation: "gardens"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "tasks_garden_plant_id_fkey"
+            columns: ["garden_plant_id"]
+            isOneToOne: false
+            referencedRelation: "garden_plants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
