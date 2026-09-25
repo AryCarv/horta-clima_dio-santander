@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CalendarDays, CloudSun, Droplets, Sprout, ListChecks, NotebookPen, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/hc/AuthCard";
-import hero from "@/assets/hero-balcony.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -73,13 +72,13 @@ function Landing() {
           </div>
         </div>
         <div className="relative">
-          <img
-            src={hero}
-            alt="Varanda com vasos de alface, manjericão e tomate-cereja"
-            className="aspect-[5/4] w-full rounded-3xl object-cover shadow-xl"
-            width={1280}
-            height={1024}
-          />
+          <div className="grid aspect-[5/4] w-full grid-cols-3 gap-3 rounded-3xl bg-gradient-to-br from-secondary via-accent to-sun p-6 shadow-xl" aria-hidden>
+            {["🥬", "🍅", "🌿", "🌶️", "🍓", "🥕", "🧅", "🥒", "🌱"].map((e) => (
+              <div key={e} className="grid place-items-center rounded-2xl bg-card/70 text-4xl shadow-sm md:text-5xl">
+                {e}
+              </div>
+            ))}
+          </div>
           <div className="absolute -bottom-5 left-4 rounded-2xl border bg-card p-4 shadow-lg sm:left-8">
             <p className="text-xs text-muted-foreground">Hoje na sua horta</p>
             <p className="font-semibold">🌧️ Chuva prevista — confira a umidade antes de regar</p>
