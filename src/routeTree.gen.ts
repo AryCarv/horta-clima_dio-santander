@@ -18,6 +18,16 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
 import { Route as AuthenticatedOnboardingRouteImport } from './routes/_authenticated/onboarding'
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
+import { Route as AuthenticatedAppCalendarioRouteImport } from './routes/_authenticated/app.calendario'
+import { Route as AuthenticatedAppClimaRouteImport } from './routes/_authenticated/app.clima'
+import { Route as AuthenticatedAppConfiguracoesRouteImport } from './routes/_authenticated/app.configuracoes'
+import { Route as AuthenticatedAppDashboardRouteImport } from './routes/_authenticated/app.dashboard'
+import { Route as AuthenticatedAppDiarioRouteImport } from './routes/_authenticated/app.diario'
+import { Route as AuthenticatedAppMinhaHortaRouteImport } from './routes/_authenticated/app.minha-horta'
+import { Route as AuthenticatedAppRecomendacoesRouteImport } from './routes/_authenticated/app.recomendacoes'
+import { Route as AuthenticatedAppTarefasRouteImport } from './routes/_authenticated/app.tarefas'
+import { Route as AuthenticatedAppPlantasIndexRouteImport } from './routes/_authenticated/app.plantas.index'
+import { Route as AuthenticatedAppPlantasSlugRouteImport } from './routes/_authenticated/app.plantas.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -63,6 +73,63 @@ const AuthenticatedAppIndexRoute = AuthenticatedAppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AuthenticatedAppRoute,
 } as any)
+const AuthenticatedAppCalendarioRoute =
+  AuthenticatedAppCalendarioRouteImport.update({
+    id: '/calendario',
+    path: '/calendario',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppClimaRoute = AuthenticatedAppClimaRouteImport.update({
+  id: '/clima',
+  path: '/clima',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppConfiguracoesRoute =
+  AuthenticatedAppConfiguracoesRouteImport.update({
+    id: '/configuracoes',
+    path: '/configuracoes',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppDashboardRoute =
+  AuthenticatedAppDashboardRouteImport.update({
+    id: '/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppDiarioRoute = AuthenticatedAppDiarioRouteImport.update({
+  id: '/diario',
+  path: '/diario',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppMinhaHortaRoute =
+  AuthenticatedAppMinhaHortaRouteImport.update({
+    id: '/minha-horta',
+    path: '/minha-horta',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppRecomendacoesRoute =
+  AuthenticatedAppRecomendacoesRouteImport.update({
+    id: '/recomendacoes',
+    path: '/recomendacoes',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppTarefasRoute = AuthenticatedAppTarefasRouteImport.update({
+  id: '/tarefas',
+  path: '/tarefas',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppPlantasIndexRoute =
+  AuthenticatedAppPlantasIndexRouteImport.update({
+    id: '/plantas/',
+    path: '/plantas/',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppPlantasSlugRoute =
+  AuthenticatedAppPlantasSlugRouteImport.update({
+    id: '/plantas/$slug',
+    path: '/plantas/$slug',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -72,7 +139,17 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/app': typeof AuthenticatedAppRouteWithChildren
   '/onboarding': typeof AuthenticatedOnboardingRoute
+  '/app/calendario': typeof AuthenticatedAppCalendarioRoute
+  '/app/clima': typeof AuthenticatedAppClimaRoute
+  '/app/configuracoes': typeof AuthenticatedAppConfiguracoesRoute
+  '/app/dashboard': typeof AuthenticatedAppDashboardRoute
+  '/app/diario': typeof AuthenticatedAppDiarioRoute
+  '/app/minha-horta': typeof AuthenticatedAppMinhaHortaRoute
+  '/app/recomendacoes': typeof AuthenticatedAppRecomendacoesRoute
+  '/app/tarefas': typeof AuthenticatedAppTarefasRoute
   '/app/': typeof AuthenticatedAppIndexRoute
+  '/app/plantas/$slug': typeof AuthenticatedAppPlantasSlugRoute
+  '/app/plantas/': typeof AuthenticatedAppPlantasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -81,7 +158,17 @@ export interface FileRoutesByTo {
   '/recuperar-senha': typeof RecuperarSenhaRoute
   '/reset-password': typeof ResetPasswordRoute
   '/onboarding': typeof AuthenticatedOnboardingRoute
+  '/app/calendario': typeof AuthenticatedAppCalendarioRoute
+  '/app/clima': typeof AuthenticatedAppClimaRoute
+  '/app/configuracoes': typeof AuthenticatedAppConfiguracoesRoute
+  '/app/dashboard': typeof AuthenticatedAppDashboardRoute
+  '/app/diario': typeof AuthenticatedAppDiarioRoute
+  '/app/minha-horta': typeof AuthenticatedAppMinhaHortaRoute
+  '/app/recomendacoes': typeof AuthenticatedAppRecomendacoesRoute
+  '/app/tarefas': typeof AuthenticatedAppTarefasRoute
   '/app': typeof AuthenticatedAppIndexRoute
+  '/app/plantas/$slug': typeof AuthenticatedAppPlantasSlugRoute
+  '/app/plantas': typeof AuthenticatedAppPlantasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -93,7 +180,17 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
   '/_authenticated/onboarding': typeof AuthenticatedOnboardingRoute
+  '/_authenticated/app/calendario': typeof AuthenticatedAppCalendarioRoute
+  '/_authenticated/app/clima': typeof AuthenticatedAppClimaRoute
+  '/_authenticated/app/configuracoes': typeof AuthenticatedAppConfiguracoesRoute
+  '/_authenticated/app/dashboard': typeof AuthenticatedAppDashboardRoute
+  '/_authenticated/app/diario': typeof AuthenticatedAppDiarioRoute
+  '/_authenticated/app/minha-horta': typeof AuthenticatedAppMinhaHortaRoute
+  '/_authenticated/app/recomendacoes': typeof AuthenticatedAppRecomendacoesRoute
+  '/_authenticated/app/tarefas': typeof AuthenticatedAppTarefasRoute
   '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
+  '/_authenticated/app/plantas/$slug': typeof AuthenticatedAppPlantasSlugRoute
+  '/_authenticated/app/plantas/': typeof AuthenticatedAppPlantasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -105,7 +202,17 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/app'
     | '/onboarding'
+    | '/app/calendario'
+    | '/app/clima'
+    | '/app/configuracoes'
+    | '/app/dashboard'
+    | '/app/diario'
+    | '/app/minha-horta'
+    | '/app/recomendacoes'
+    | '/app/tarefas'
     | '/app/'
+    | '/app/plantas/$slug'
+    | '/app/plantas/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -114,7 +221,17 @@ export interface FileRouteTypes {
     | '/recuperar-senha'
     | '/reset-password'
     | '/onboarding'
+    | '/app/calendario'
+    | '/app/clima'
+    | '/app/configuracoes'
+    | '/app/dashboard'
+    | '/app/diario'
+    | '/app/minha-horta'
+    | '/app/recomendacoes'
+    | '/app/tarefas'
     | '/app'
+    | '/app/plantas/$slug'
+    | '/app/plantas'
   id:
     | '__root__'
     | '/'
@@ -125,7 +242,17 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/_authenticated/app'
     | '/_authenticated/onboarding'
+    | '/_authenticated/app/calendario'
+    | '/_authenticated/app/clima'
+    | '/_authenticated/app/configuracoes'
+    | '/_authenticated/app/dashboard'
+    | '/_authenticated/app/diario'
+    | '/_authenticated/app/minha-horta'
+    | '/_authenticated/app/recomendacoes'
+    | '/_authenticated/app/tarefas'
     | '/_authenticated/app/'
+    | '/_authenticated/app/plantas/$slug'
+    | '/_authenticated/app/plantas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -202,15 +329,105 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppIndexRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/calendario': {
+      id: '/_authenticated/app/calendario'
+      path: '/calendario'
+      fullPath: '/app/calendario'
+      preLoaderRoute: typeof AuthenticatedAppCalendarioRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/clima': {
+      id: '/_authenticated/app/clima'
+      path: '/clima'
+      fullPath: '/app/clima'
+      preLoaderRoute: typeof AuthenticatedAppClimaRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/configuracoes': {
+      id: '/_authenticated/app/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/app/configuracoes'
+      preLoaderRoute: typeof AuthenticatedAppConfiguracoesRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/dashboard': {
+      id: '/_authenticated/app/dashboard'
+      path: '/dashboard'
+      fullPath: '/app/dashboard'
+      preLoaderRoute: typeof AuthenticatedAppDashboardRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/diario': {
+      id: '/_authenticated/app/diario'
+      path: '/diario'
+      fullPath: '/app/diario'
+      preLoaderRoute: typeof AuthenticatedAppDiarioRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/minha-horta': {
+      id: '/_authenticated/app/minha-horta'
+      path: '/minha-horta'
+      fullPath: '/app/minha-horta'
+      preLoaderRoute: typeof AuthenticatedAppMinhaHortaRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/recomendacoes': {
+      id: '/_authenticated/app/recomendacoes'
+      path: '/recomendacoes'
+      fullPath: '/app/recomendacoes'
+      preLoaderRoute: typeof AuthenticatedAppRecomendacoesRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/tarefas': {
+      id: '/_authenticated/app/tarefas'
+      path: '/tarefas'
+      fullPath: '/app/tarefas'
+      preLoaderRoute: typeof AuthenticatedAppTarefasRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/plantas/': {
+      id: '/_authenticated/app/plantas/'
+      path: '/plantas'
+      fullPath: '/app/plantas/'
+      preLoaderRoute: typeof AuthenticatedAppPlantasIndexRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/plantas/$slug': {
+      id: '/_authenticated/app/plantas/$slug'
+      path: '/plantas/$slug'
+      fullPath: '/app/plantas/$slug'
+      preLoaderRoute: typeof AuthenticatedAppPlantasSlugRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
   }
 }
 
 interface AuthenticatedAppRouteChildren {
+  AuthenticatedAppCalendarioRoute: typeof AuthenticatedAppCalendarioRoute
+  AuthenticatedAppClimaRoute: typeof AuthenticatedAppClimaRoute
+  AuthenticatedAppConfiguracoesRoute: typeof AuthenticatedAppConfiguracoesRoute
+  AuthenticatedAppDashboardRoute: typeof AuthenticatedAppDashboardRoute
+  AuthenticatedAppDiarioRoute: typeof AuthenticatedAppDiarioRoute
+  AuthenticatedAppMinhaHortaRoute: typeof AuthenticatedAppMinhaHortaRoute
+  AuthenticatedAppRecomendacoesRoute: typeof AuthenticatedAppRecomendacoesRoute
+  AuthenticatedAppTarefasRoute: typeof AuthenticatedAppTarefasRoute
   AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
+  AuthenticatedAppPlantasSlugRoute: typeof AuthenticatedAppPlantasSlugRoute
+  AuthenticatedAppPlantasIndexRoute: typeof AuthenticatedAppPlantasIndexRoute
 }
 
 const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
+  AuthenticatedAppCalendarioRoute: AuthenticatedAppCalendarioRoute,
+  AuthenticatedAppClimaRoute: AuthenticatedAppClimaRoute,
+  AuthenticatedAppConfiguracoesRoute: AuthenticatedAppConfiguracoesRoute,
+  AuthenticatedAppDashboardRoute: AuthenticatedAppDashboardRoute,
+  AuthenticatedAppDiarioRoute: AuthenticatedAppDiarioRoute,
+  AuthenticatedAppMinhaHortaRoute: AuthenticatedAppMinhaHortaRoute,
+  AuthenticatedAppRecomendacoesRoute: AuthenticatedAppRecomendacoesRoute,
+  AuthenticatedAppTarefasRoute: AuthenticatedAppTarefasRoute,
   AuthenticatedAppIndexRoute: AuthenticatedAppIndexRoute,
+  AuthenticatedAppPlantasSlugRoute: AuthenticatedAppPlantasSlugRoute,
+  AuthenticatedAppPlantasIndexRoute: AuthenticatedAppPlantasIndexRoute,
 }
 
 const AuthenticatedAppRouteWithChildren =
