@@ -22,6 +22,7 @@ import { Logo } from "@/components/hc/AuthCard";
 import { useProfile, useUser } from "@/hooks/use-hc";
 
 export const Route = createFileRoute("/_authenticated/app")({
+  staticData: { sitemap: false },
   component: AppLayout,
 });
 

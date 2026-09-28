@@ -11,6 +11,7 @@ import { useGarden, useInvalidate, useProfile, useUser } from "@/hooks/use-hc";
 import { EXPERIENCE, OBJECTIVES, SIZES, SPACES, SUN, type City } from "@/lib/hc";
 
 export const Route = createFileRoute("/_authenticated/onboarding")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title: "Configurar minha horta — HortaClima" },

@@ -7,6 +7,7 @@ import { usePlants } from "@/hooks/use-hc";
 import { CATEGORY, DIFFICULTY, SUN } from "@/lib/hc";
 
 export const Route = createFileRoute("/_authenticated/app/plantas/")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Plantas — HortaClima" }, { name: "description", content: "Catálogo de plantas." }] }),
   component: Catalog,
 });

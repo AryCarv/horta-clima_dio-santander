@@ -8,6 +8,7 @@ import { PageHeader } from "@/components/hc/common";
 import { useGardenPlants, useProfile, useTasks } from "@/hooks/use-hc";
 
 export const Route = createFileRoute("/_authenticated/app/calendario")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Calendário — HortaClima" }, { name: "description", content: "Plantios, cuidados e colheitas." }] }),
   component: Cal,
 });

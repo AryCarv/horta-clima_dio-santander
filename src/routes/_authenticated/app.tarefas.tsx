@@ -11,6 +11,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { TASK_TYPES, fmtDate, todayISO } from "@/lib/hc";
 
 export const Route = createFileRoute("/_authenticated/app/tarefas")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Tarefas — HortaClima" }, { name: "description", content: "Cuidados da sua horta." }] }),
   component: Tasks,
 });

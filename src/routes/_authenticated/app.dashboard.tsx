@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { ACTIVE_STATUSES, fmtDate, recommend, temp, todayISO, weatherLabel } from "@/lib/hc";
 
 export const Route = createFileRoute("/_authenticated/app/dashboard")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Dashboard — HortaClima" }, { name: "description", content: "Sua horta hoje." }] }),
   component: Dashboard,
 });

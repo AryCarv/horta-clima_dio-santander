@@ -7,6 +7,7 @@ import { useGarden, usePlants, useProfile } from "@/hooks/use-hc";
 import { CATEGORY, DIFFICULTY, SUN, plantEmoji, recommend } from "@/lib/hc";
 
 export const Route = createFileRoute("/_authenticated/app/plantas/$slug")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Detalhes da planta — HortaClima" }, { name: "description", content: "Cuidados, plantio e colheita." }] }),
   component: Detail,
 });

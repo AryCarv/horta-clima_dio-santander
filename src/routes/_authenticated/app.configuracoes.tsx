@@ -11,6 +11,7 @@ import { useGarden, useInvalidate, useProfile, useUser } from "@/hooks/use-hc";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated/app/configuracoes")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Configurações — HortaClima" }, { name: "description", content: "Perfil e preferências." }] }),
   component: Settings,
 });
