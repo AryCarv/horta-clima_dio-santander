@@ -13,6 +13,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { ACTIVE_STATUSES, STATUS, daysSince, fmtDate, plantEmoji, todayISO, type GardenPlant } from "@/lib/hc";
 
 export const Route = createFileRoute("/_authenticated/app/minha-horta")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Minha Horta — HortaClima" }, { name: "description", content: "Plantas em cultivo." }] }),
   component: MyGarden,
 });

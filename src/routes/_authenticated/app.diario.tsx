@@ -13,6 +13,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { JOURNAL_TYPES, fmtDate, todayISO } from "@/lib/hc";
 
 export const Route = createFileRoute("/_authenticated/app/diario")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Diário da Horta — HortaClima" }, { name: "description", content: "Registros da sua horta." }] }),
   component: Journal,
 });

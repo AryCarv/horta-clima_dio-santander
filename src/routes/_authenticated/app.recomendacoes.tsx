@@ -4,6 +4,7 @@ import { useGarden, usePlants, useProfile, useWeather } from "@/hooks/use-hc";
 import { recommend } from "@/lib/hc";
 
 export const Route = createFileRoute("/_authenticated/app/recomendacoes")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "O que posso plantar agora? — HortaClima" }, { name: "description", content: "Recomendações para seu espaço." }] }),
   component: Recs,
 });

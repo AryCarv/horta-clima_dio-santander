@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export const Route = createFileRoute("/cadastro")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Criar conta — HortaClima" },

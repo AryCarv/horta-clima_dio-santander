@@ -10,6 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { interpretWeather, temp, weatherLabel } from "@/lib/hc";
 
 export const Route = createFileRoute("/_authenticated/app/clima")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [{ title: "Clima — HortaClima" }, { name: "description", content: "Previsão de 7 dias para sua horta." }] }),
   component: Clima,
 });
