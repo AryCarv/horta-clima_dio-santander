@@ -46,7 +46,7 @@ function Landing() {
             <Link to="/login">Entrar</Link>
           </Button>
           <Button asChild>
-            <Link to="/cadastro">Começar grátis</Link>
+            <Link to="/cadastro">Começar agora</Link>
           </Button>
         </div>
       </header>
