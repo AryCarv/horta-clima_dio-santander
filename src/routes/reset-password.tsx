@@ -12,6 +12,7 @@ export const Route = createFileRoute("/reset-password")({
   head: () => ({
     meta: [
       { title: "Nova senha — HortaClima" },
+      { name: "robots", content: "noindex" },
       { name: "description", content: "Defina uma nova senha para sua conta HortaClima." },
       { property: "og:title", content: "Nova senha — HortaClima" },
       { property: "og:description", content: "Defina uma nova senha para sua conta HortaClima." },

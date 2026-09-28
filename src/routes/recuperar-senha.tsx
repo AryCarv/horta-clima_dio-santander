@@ -13,6 +13,7 @@ export const Route = createFileRoute("/recuperar-senha")({
   head: () => ({
     meta: [
       { title: "Recuperar senha — HortaClima" },
+      { name: "robots", content: "noindex" },
       { name: "description", content: "Receba um link para redefinir sua senha do HortaClima." },
       { property: "og:title", content: "Recuperar senha — HortaClima" },
       { property: "og:description", content: "Receba um link para redefinir sua senha do HortaClima." },
