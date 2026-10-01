@@ -134,7 +134,7 @@ function Landing() {
           <h2 className="text-3xl font-semibold">Sua horta começa com um vaso.</h2>
           <p className="mx-auto mt-3 max-w-md opacity-90">Crie sua conta gratuita e descubra o que plantar hoje.</p>
           <Button size="lg" variant="secondary" className="mt-6" asChild>
-            <Link to="/cadastro">Começar agora</Link>
+            <Link to="/cadastro">Comece agora</Link>
           </Button>
         </div>
       </section>
