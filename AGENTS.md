@@ -9,3 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 - TS strict extras (noImplicitReturns, noUncheckedIndexedAccess, noPropertyAccessFromIndexSignature, exactOptionalPropertyTypes) are off — they flagged safe existing code without catching real bugs.
+- MCP server lives in src/lib/mcp/ with Supabase OAuth; tools forward the caller's token so RLS applies — never use admin clients there.

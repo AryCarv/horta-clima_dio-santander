@@ -36,7 +36,7 @@ export function GoogleButton() {
       variant="outline"
       className="w-full"
       onClick={async () => {
-        const r = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/login" });
+        const r = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/login" + window.location.search });
         if (r.error) toast.error("Não foi possível entrar com o Google. Tente novamente.");
       }}
     >
