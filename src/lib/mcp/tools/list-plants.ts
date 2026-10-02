@@ -15,7 +15,7 @@ export default defineTool({
     if (error) throw new ToolError(error.message);
     const plants = (data ?? []).map((p) => ({
       id: p.id,
-      name: (p.plants as { name: string } | null)?.name ?? "",
+      name: (p.plants as unknown as { name: string } | null)?.name ?? "",
       quantity: p.quantity,
       status: p.status,
       planted_at: p.planted_at,
