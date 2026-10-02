@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "sdk_version": "3.0.4",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://fuezvzvtxcojqytdlkct.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "hortaclima-desafio-de-projeto-dio",
+      "version": "0.1.0",
+      "title": "HortaClima - Desafio de Projeto DIO"
+    },
+    "tools": [
+      {
+        "name": "list_my_plants",
+        "title": "Listar minhas plantas",
+        "description": "Lista as plantas cultivadas na horta do usuário, com data de plantio e janela de colheita.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_tasks",
+        "title": "Listar tarefas da horta",
+        "description": "Lista as tarefas da horta do usuário (rega, adubação, colheita), filtrando por situação.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "completed",
+                "all"
+              ],
+              "default": "pending",
+              "description": "Situação das tarefas."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "set_task_status",
+        "title": "Concluir ou reabrir tarefa",
+        "description": "Marca uma tarefa da horta do usuário como concluída ou pendente.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "task_id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "ID da tarefa."
+            },
+            "completed": {
+              "type": "boolean",
+              "description": "true para concluir, false para reabrir."
+            }
+          },
+          "required": [
+            "task_id",
+            "completed"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}

@@ -18,6 +18,9 @@ export const Route = createFileRoute("/login")({
       { property: "og:description", content: "Acesse sua horta no HortaClima." },
     ],
   }),
+  validateSearch: (s: Record<string, unknown>) => ({
+    next: typeof s.next === "string" && s.next.startsWith("/") && !s.next.startsWith("//") ? s.next : undefined,
+  }),
   component: Login,
 });
 
@@ -28,18 +31,20 @@ const schema = z.object({
 
 function Login() {
   const navigate = useNavigate();
+  const { next } = Route.useSearch();
+  const go = () => (next ? window.location.assign(next) : navigate({ to: "/app/dashboard", replace: true }));
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
-      if (data.session) navigate({ to: "/app/dashboard", replace: true });
+      if (data.session) go();
     });
     const { data } = supabase.auth.onAuthStateChange((e, s) => {
-      if (e === "SIGNED_IN" && s) navigate({ to: "/app/dashboard", replace: true });
+      if (e === "SIGNED_IN" && s) go();
     });
     return () => data.subscription.unsubscribe();
-  }, [navigate]);
+  }, [navigate, next]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -59,7 +64,7 @@ function Login() {
       );
       return;
     }
-    navigate({ to: "/app/dashboard", replace: true });
+    go();
   }
 
   return (
