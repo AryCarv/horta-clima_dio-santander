@@ -18,7 +18,7 @@ export const Route = createFileRoute("/login")({
       { property: "og:description", content: "Acesse sua horta no HortaClima." },
     ],
   }),
-  validateSearch: (s: Record<string, unknown>) => ({
+  validateSearch: (s: Record<string, unknown>): { next?: string } => ({
     next: typeof s.next === "string" && s.next.startsWith("/") && !s.next.startsWith("//") ? s.next : undefined,
   }),
   component: Login,
