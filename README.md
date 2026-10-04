@@ -22,3 +22,5 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+NOTA: Este README será modificado.
