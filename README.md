@@ -17,7 +17,17 @@
 
 > **HortaClima** é um aplicativo web em desenvolvimento que ajuda pessoas a planejar e acompanhar hortas domésticas, especialmente em vasos, jardineiras, varandas, sacadas e pequenos quintais. O projeto combina organização do cultivo, sugestões de plantas e informações meteorológicas para transformar dados em ações práticas.
 
-**[Acessar a aplicação publicada](https://horta-clima-dio-santander.vercel.app/) · [Ver o código-fonte](https://github.com/AryCarv/horta-clima_dio-santander)**
+---
+
+<img width="1366" height="645" alt="ScreenShot_20261009150402" src="https://github.com/user-attachments/assets/7223fbb1-2d53-4efc-aab2-326d78d18d78" />
+
+<img width="1366" height="645" alt="ScreenShot_20261009150731" src="https://github.com/user-attachments/assets/9fa67bef-2716-4f3d-a9fd-272e97118115" />
+
+<img width="1366" height="645" alt="ScreenShot_20261009150747" src="https://github.com/user-attachments/assets/f38bede2-eed2-4710-8efb-efd4812186b3" />
+
+---
+
+**[Acessar a aplicação publicada](https://hortaclima.lovable.app/)**
 
 ---
 
